@@ -1,0 +1,238 @@
+<?xml<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/logoVibraFit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Texto saludo -->
+    <TextView
+        android:id="@+id/tvGreeting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Hola Felipe,"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        app:layout_constraintStart_toEndOf="@id/imgLogo"
+        app:layout_constraintTop_toTopOf="@id/imgLogo" />
+
+    <TextView
+        android:id="@+id/tvSubGreeting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Buenos noches,"
+        android:textColor="#777"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@id/tvGreeting"
+        app:layout_constraintTop_toBottomOf="@id/tvGreeting" />
+
+    <!-- Icono notificación -->
+    <FrameLayout
+        android:id="@+id/flNotification"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgNotificationBell"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_bell" />
+
+        <!-- Badge -->
+        <TextView
+            android:id="@+id/tvNotificationCount"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_gravity="top|end"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="0dp"
+            android:background="@drawable/circle_red"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="#fff"
+            android:textSize="10sp" />
+    </FrameLayout>
+
+    <!-- Título Entrenamiento personalizado -->
+    <TextView
+        android:id="@+id/tvTrainingTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Entrenamiento personalizado"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgLogo" />
+
+    <!-- Fecha -->
+    <TextView
+        android:id="@+id/tvTrainingDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="Lunes 7 Sep"
+        android:textColor="#3b67ff"
+        android:textSize="14sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tvTrainingTitle"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Card Mi plan de entrenamiento -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardTrainingPlan"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTrainingTitle">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgTrainingPlan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/imgTraining"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvTrainingPlanLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|start"
+                android:layout_margin="12dp"
+                android:background="#66000000"
+                android:padding="8dp"
+                android:text="Mi plan de entrenamiento"
+                android:textColor="#fff"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <!-- Segment control Novato, Intermedio, Avanzado -->
+
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroupLevels"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/chip_group_background"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        app:chipSpacing="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@id/cardTrainingPlan"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipNovato"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Novato"
+            app:chipStartPadding="20dp"
+            android:layout_marginLeft="8dp"
+            app:chipEndPadding="0dp"
+            android:textColor="#FFFFFF"
+            app:chipBackgroundColor="#2465E1" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipIntermedio"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            app:chipStartPadding="20dp"
+            app:chipEndPadding="0dp"
+            android:text="Intermedio"
+            app:chipBackgroundColor="#1B1E28"
+            android:textColor="#FFFFFF"/>
+
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipAvanzado"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            app:chipStartPadding="20dp"
+            app:chipEndPadding="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginRight="20dp"
+            app:chipBackgroundColor="#1B1E28"
+            android:textColor="#FFFFFF"
+            android:text="Avanzado" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTrainingDays"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:clipToPadding="false"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chipGroupLevels"
+        tools:listitem="@layout/item_training_card" />
+
+
+
+    <!-- Barra inferior navegación -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:background="#000000"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/selector_nav_color"
+        app:itemTextColor="@color/selector_nav_color"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:itemIconSize="32dp" />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
